@@ -2,6 +2,7 @@
 import pandas as pd
 import json
 import time
+import ast
 
 from torqueclient import Torque
 
@@ -10,7 +11,10 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 def clean_objs(key, val):
   if isinstance(val, list):
-    val = ','.join(val)
+    try:
+      val = ','.join(val)
+    except:
+      pass
   elif isinstance(val, dict):
     val = json.dumps(val)
   return key, val
