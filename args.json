@@ -1,0 +1,24 @@
+{
+  "username": "",
+  "api_key": "",
+  "fields": [
+    "Application #",
+    "Competition",
+    "Project Title",
+    "Organization Name",
+    "Panel DURABLE Judge Data",
+    "Panel SUSTAINABLE Judge Data",
+    "Panel EVIDENCE-BASED Judge Data",
+    "Panel FEASIBLE Judge Data",
+    "Panel IMPACTFUL Judge Data",
+    "Panel COMMUNITY-INFORMED Judge Data",
+    "Panem COMMUNITY CENTERED Judge Data",
+    "Panel SCALABLE Judge Data",
+    "Panel EQUITABLE Judge Data",
+    "Panel ACTIONABLE Judge Data",
+    "Panel BOLD Judge Data",
+    "Panel INNOVATIVE Judge Data",
+    "Panel TRANSFORMATIVE Judge Data"
+  ],
+  "exclude_competitions": ["100Change2017"]
+}
