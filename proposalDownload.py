@@ -45,6 +45,11 @@ def run(**kwargs):
     for proposal in proposals:
       res = {k:proposal[k] for k in compFields}
       res = dict(map(lambda x: clean_objs(x[0],x[1]), res.items()))
+      
+      # Temp fix to assign BAWOP ID to Competition Domain
+      if 'BaWoP22' in res['GlobalView MediaWiki Title']:
+        res['Competition Domain'] = 'BaWoP22'
+        
       df.append(res)
 
   df = pd.DataFrame(df)
