@@ -58,5 +58,8 @@ def run(**kwargs):
   print('Proposals written to data/lfc-proposals.csv')
 
 if __name__ == '__main__':
-  kwargs = json.load(open('args.json'))
+  try:
+    kwargs = json.load(open('args.local.json'))
+  except:
+    kwargs = json.load(open('args.json'))
   run(**kwargs)
