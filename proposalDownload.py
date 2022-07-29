@@ -1,8 +1,6 @@
-# -*- coding: utf-8 -*-
 import pandas as pd
 import json
 import time
-import ast
 
 from torqueclient import Torque
 
@@ -32,7 +30,12 @@ def run(**kwargs):
   print('Gathering from competitions:', ', '.join([c for c in competitions]))
 
   # determine fields to download
-  fields = ['Application #', 'Competition Domain', 'Project Title', 'GlobalView MediaWiki Title']
+  fields = [
+    'Application #', 
+    'Competition Name', 
+    'Project Title', 
+    'GlobalView MediaWiki Title',
+    ]
   fields += kwargs['fields']
 
   df = []
@@ -44,12 +47,7 @@ def run(**kwargs):
     compFields = set(comp.fields) & set(fields)
     for proposal in proposals:
       res = {k:proposal[k] for k in compFields}
-      res = dict(map(lambda x: clean_objs(x[0],x[1]), res.items()))
-      
-      # Temp fix to assign BAWOP ID to Competition Domain
-      if 'BaWoP22' in res['GlobalView MediaWiki Title']:
-        res['Competition Domain'] = 'BaWoP22'
-        
+      res = dict(map(lambda x: clean_objs(x[0], x[1]), res.items()))        
       df.append(res)
 
   df = pd.DataFrame(df)
